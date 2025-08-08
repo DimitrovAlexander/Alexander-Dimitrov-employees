@@ -21,8 +21,8 @@
         <table class="table table-bordered table-striped mt-3">
             <thead>
                 <tr>
-                    <th>Pair</th>
-                   
+                    <th>Employee #1</th>
+                    <th>Employee #2</th>
                     <th>Project ID</th>
                     <th>Days Worked</th>
                 </tr>
@@ -31,7 +31,8 @@
                 @foreach (var item in Model.AllPairs)
                 {
                     <tr>
-                        <td>@item.Employee1 ; @item.Employee2</td>
+                        <td>@item.Employee1 </td>
+                        <td>@item.Employee2 </td>
                         <td>@item.ProjectID</td>
                         <td>@item.DaysTogether</td>
                     </tr>
