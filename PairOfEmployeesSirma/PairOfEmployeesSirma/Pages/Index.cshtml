@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Employee Pairs";
+}
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-4">
+    <h2>Upload CSV file</h2>
+    <form method="post" enctype="multipart/form-data" class="mb-3">
+        <div class="mb-3">
+            <input type="file" name="UploadedFile" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Process</button>
+    </form>
+
+    @if (Model.TopPair != null)
+    {
+        <h4>Top Pair: @Model.TopPair.Employee1 and @Model.TopPair.Employee2 - @Model.TopPair.DaysTogether days together</h4>
+
+        <table class="table table-bordered table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Pair</th>
+                   
+                    <th>Project ID</th>
+                    <th>Days Worked</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AllPairs)
+                {
+                    <tr>
+                        <td>@item.Employee1 ; @item.Employee2</td>
+                        <td>@item.ProjectID</td>
+                        <td>@item.DaysTogether</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
